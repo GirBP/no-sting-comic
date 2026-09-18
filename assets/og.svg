@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="ht" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.6" fill="#f0a81e" opacity="0.35"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141210"/><stop offset="1" stop-color="#0b0a08"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#ht)"/>
+  <g fill="#f0c419">
+    <rect x="0" y="0" width="1200" height="16"
+      transform="rotate(0)"/>
+  </g>
+  <rect x="0" y="0" width="1200" height="16" fill="#f0c419" opacity="0.9"/>
+  <text x="80" y="150" font-family="Oswald, Arial Narrow, sans-serif" font-size="34"
+    letter-spacing="14" fill="#f0a81e">СПРАВА №001 · APIS MELLIFERA</text>
+  <text x="72" y="360" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700"
+    font-size="240" fill="none" stroke="#e9dcc3" stroke-width="4">НЕ</text>
+  <text x="470" y="360" font-family="Oswald, Arial Narrow, sans-serif" font-weight="700"
+    font-size="240" fill="#f0a81e">ЖАЛЬ</text>
+  <text x="80" y="470" font-family="Oswald, Arial Narrow, sans-serif" font-size="42" fill="#e9dcc3">
+    Усе, що ти знаєш про бджіл, тобі розказав дід.</text>
+  <text x="80" y="524" font-family="Oswald, Arial Narrow, sans-serif" font-size="42" fill="#b6a888">
+    А дід не читав PubMed.</text>
+  <text x="80" y="590" font-family="JetBrains Mono, monospace" font-size="24" fill="#7a5a1c">
+    ДОКАЗОВИЙ КОМІКС ПРО БДЖІЛ · ВУЛИЦЯ vs НАУКА · @dont_sting</text>
+</svg>

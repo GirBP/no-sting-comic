@@ -1,0 +1,89 @@
+/* НЕ ЖАЛЬ — база, шар зерна/halftone, каркас. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--step-0);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Дуотонове тло з ледь помітним градієнтом «прожектора» */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: -3;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(240,168,30,0.10), transparent 60%),
+    radial-gradient(100% 60% at 90% 110%, rgba(122,90,28,0.14), transparent 55%),
+    var(--ink);
+}
+
+/* HALFTONE — один fixed-оверлей на весь сайт (не на кожну секцію: береже GPU).
+   Окремий шар «зерна» з mix-blend-mode прибрано: він ніколи не мав зображення (var не був
+   визначений) і лише коштував би композитингу на мобільних GPU. */
+.halftone-layer {
+  position: fixed; inset: 0; z-index: -2;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: radial-gradient(var(--line) 1.1px, transparent 1.3px);
+  background-size: 7px 7px;
+  mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 75%);
+  -webkit-mask-image: radial-gradient(120% 100% at 50% 0%, #000 0%, transparent 75%);
+}
+
+.wrap { width: min(100% - 2 * var(--gutter), 1180px); margin-inline: auto; }
+.narrow { max-width: var(--measure); }
+
+section { position: relative; }
+/* Трансформовані pre-стани анімацій (напр. штамп scale(1.9)) не мають розширювати
+   scrollable overflow документа: на Android це роздуває layout viewport і зсуває
+   фіксовану шапку за екран. clip (на відміну від hidden) не робить main скрол-контейнером. */
+@supports (overflow-x: clip) { main { overflow-x: clip; } }
+
+/* Наратор — «голос з-за кадру» */
+.narrator {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  color: var(--amber);
+  border-left: 3px solid var(--amber-deep);
+  padding: 0.4em 0 0.4em 0.9em;
+  margin: 1.4em 0;
+  max-width: 48ch;
+  font-style: normal;
+  line-height: 1.55;
+}
+.narrator::before { content: '▸ '; opacity: 0.7; }
+
+a { color: var(--amber); text-underline-offset: 3px; }
+
+/* Доступність: видимий фокус */
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
+.skip {
+  position: absolute; left: 0.5rem; top: -100px; z-index: 3000;
+  background: var(--amber); color: var(--ink); padding: 0.6em 1em;
+  font-family: var(--font-mono); font-weight: 700; text-transform: uppercase;
+}
+.skip:focus { top: 0.5rem; }
+[hidden] { display: none !important; }
+
+/* Тільки для скрінрідерів */
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Save-Data / економія трафіку: прибрати декоративний halftone */
+@media (prefers-reduced-data: reduce) {
+  .halftone-layer { display: none; }
+}

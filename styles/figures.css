@@ -1,0 +1,83 @@
+/* НЕ ЖАЛЬ — стилі ілюстрацій: портрети касту й схеми-«докази». */
+
+/* ---------- Портрет касту ---------- */
+.cast-art {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.dossier .portrait {
+  aspect-ratio: 3 / 4;              /* вертикальний, під дорсальний вигляд бджоли */
+  background:
+    radial-gradient(70% 55% at 50% 38%, rgba(240,168,30,0.10), transparent 70%),
+    var(--ink-3);
+}
+.dossier .portrait svg { width: 100%; height: 100%; }
+/* Растровий постер із assets/panels/ — поверх SVG-фолбека (onerror прибирає img) */
+.dossier .portrait { position: relative; }
+.dossier .portrait .poster {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1; background: var(--ink-2);
+}
+
+/* ---------- Схема-«доказ» ---------- */
+.sci-panel {
+  margin: 1.1rem 0 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--ink-2);
+  box-shadow: var(--shadow-panel);
+  overflow: hidden;
+}
+.sci-panel svg { display: block; width: 100%; height: auto; }
+/* Растровий слот схеми (assets/panels/fig-<key>.png) — поверх SVG-фолбека.
+   Увага: растр не перемикає мову підписів — свідомий трейд-оф. */
+.sci-panel { position: relative; }
+.sci-panel .poster {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1; background: var(--ink-2);
+}
+
+/* Схема належить твердженню: під карткою, зчеплена з нею вужчим ґаттером */
+.myth-with-fig { display: block; }
+.myth-with-fig .sci-panel { margin-top: 0.6rem; }
+/* тривожні/нюансні схеми успадковують сигнальний колір рамки */
+.myth-with-fig.warning .sci-panel { border-color: var(--blood); }
+.myth-with-fig.nuance  .sci-panel { border-left: 4px solid var(--conf-disputed); }
+
+/* Наскрізна схема глави — ширша, як splash-панель */
+section > .sci-panel { margin-top: var(--gutter); }
+
+/* ---------- Мобільне спрощення ----------
+   На вузьких екранах дрібні службові підписи ховаються: сенс лишається,
+   а сміття зникає. Схеми лишаються читомими, а не мікроскопічними. */
+@media (max-width: 560px) {
+  .sci-panel { box-shadow: none; }
+}
+
+/* ---------- Hero-фон (assets/panels/hero.webp) ---------- */
+.hero { isolation: isolate; }
+.hero .hero-bg {
+  position: absolute; inset: 0; z-index: -1;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  opacity: 0.62;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(90deg,  rgba(11,10,8,0.92) 0%, rgba(11,10,8,0.62) 42%, rgba(11,10,8,0.18) 100%),
+    linear-gradient(180deg, rgba(11,10,8,0.70) 0%, transparent 28%, transparent 68%, rgba(11,10,8,0.96) 100%);
+}
+
+/* ---------- Заставка глави — одна сплеш-панель на главу ---------- */
+.chapter-cover {
+  margin: 0 0 1.3rem; padding: 0;
+  aspect-ratio: 3 / 2; max-height: 72vh;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow-panel); background: var(--ink-2); overflow: hidden;
+}
+.chapter-cover img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+
+/* debug: ?compact — ховає hero і TL;DR для скріншотів глав */
+.compact .hero, .compact #verdict { display: none !important; }

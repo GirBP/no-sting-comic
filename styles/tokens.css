@@ -1,0 +1,75 @@
+/* НЕ ЖАЛЬ — дизайн-токени. Естетика Гая Річі: дуотон, штампи, нуар. */
+
+/* --- Шрифти (self-hosted, з кирилицею; перевірено через Google Fonts API) --- */
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../assets/fonts/oswald-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('../assets/fonts/oswald-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+2013-2014,U+2018-2019,U+201C-201D,U+2020-2022,U+2026,U+2122;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/jbmono-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../assets/fonts/jbmono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+2013-2014,U+2018-2019,U+201C-201D,U+2026;
+}
+
+:root {
+  /* Дуотон + нуар */
+  --ink:        #0b0a08;   /* смоляно-чорний фон */
+  --ink-2:      #141210;   /* панель */
+  --ink-3:      #1e1a15;   /* підняте */
+  --paper:      #e9dcc3;   /* картонно-бежевий текст */
+  --paper-dim:  #b6a888;   /* приглушений */
+  --amber:      #f0a81e;   /* акцент — бурштин/латунь */
+  --amber-deep: #c9821a;
+  --honey:      #7a5a1c;   /* темний мед-коричневий */
+  --blood:      #d1381f;   /* ТІЛЬКИ загроза: Varroa, ботулізм */
+  --hazard:     #f0c419;   /* застережна смуга */
+  --line:       #3a3226;   /* рамки/лінії */
+  --line-soft:  #2a2419;
+
+  /* Доказовість */
+  --conf-high:     #6fbf73;
+  --conf-medium:   #e0a92e;
+  --conf-disputed: #b98cff;
+
+  /* Типографіка */
+  --font-display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --step--1: clamp(0.78rem, 0.74rem + 0.2vw, 0.9rem);
+  --step-0:  clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+  --step-1:  clamp(1.3rem, 1.15rem + 0.7vw, 1.7rem);
+  --step-2:  clamp(1.8rem, 1.5rem + 1.6vw, 2.8rem);
+  --step-3:  clamp(2.6rem, 1.9rem + 3.6vw, 5rem);
+  --step-4:  clamp(3.6rem, 2.3rem + 6.6vw, 8.5rem);
+
+  --gutter: clamp(1rem, 0.6rem + 2vw, 2.4rem);
+  --measure: 62ch;
+  --radius: 2px;
+
+  --shadow-panel: 6px 6px 0 rgba(0,0,0,0.55);
+  --shadow-stamp: 3px 3px 0 rgba(0,0,0,0.5);
+  --ease-snap: cubic-bezier(.2, 1.5, .4, 1);
+}

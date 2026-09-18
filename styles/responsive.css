@@ -1,0 +1,22 @@
+/* НЕ ЖАЛЬ — адаптив. Нуар тримається, схема спрощується на вузьких. */
+
+@media (max-width: 720px) {
+  .verdict-row { grid-template-columns: 1fr; }
+  .verdict-row .vs { padding: 0.3rem; }
+  .verdict-row .truth { border-top: 1px solid var(--line); }
+  .hero-title { font-size: clamp(3rem, 16vw, 5rem); }
+  .topbar .brandmark span { display: none; } /* лишаємо тільки «НЕ ЖАЛЬ» */
+  .source-item { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+@media (max-width: 480px) {
+  .topbar { padding-inline: 0.6rem; gap: 0.4rem; }
+  .topbar .brandmark { font-size: 0.9rem; flex-shrink: 0; }
+  .controls { gap: 0.3rem; flex-shrink: 0; }
+  .btn { padding: 0.36em 0.48em; font-size: 0.62rem; letter-spacing: 0.02em; }
+}
+
+/* Друк / дуже вузькі — прибрати важкі тіні */
+@media (max-width: 380px) {
+  .dossier, .myth { box-shadow: none; }
+}
