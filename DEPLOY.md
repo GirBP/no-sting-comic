@@ -2,18 +2,15 @@
 
 Сайт — чиста статика без білд-кроку. Розгортання = віддати теку як є.
 
-## Крок 0. Підставити домен (обов'язково перед публікацією)
-У трьох файлах є заповнювач `REPLACE-WITH-DOMAIN` — рядок, який ще не є справжнім
-доменом і його треба замінити перед публікацією. Заміни його на реальний домен
-(без `https://`), напр. `nezhal.pages.dev` або власний:
+## Крок 0. Адреса сайту
+Сайт опубліковано на GitHub Pages: <https://girbp.github.io/no-sting-comic/>. Цю адресу
+вписано в `index.html` (canonical, og:image, twitter:image), `sitemap.xml` (`<loc>` і hreflang)
+та `robots.txt` (Sitemap). Щоб перенести сайт на інший домен, заміни її в цих трьох файлах:
 
 ```bash
-DOMAIN="nezhal.pages.dev"
-sed -i '' "s#REPLACE-WITH-DOMAIN#${DOMAIN}#g" index.html sitemap.xml robots.txt
+DOMAIN="example.pages.dev"
+sed -i '' "s#girbp.github.io/no-sting-comic#${DOMAIN}#g" index.html sitemap.xml robots.txt
 ```
-
-Файли, де це вживається: `index.html` (canonical, og:image, twitter:image),
-`sitemap.xml` (`<loc>` + hreflang), `robots.txt` (Sitemap).
 
 ## Крок 1. Згенерувати растровий OG (якщо ще нема `assets/og.png`)
 Соцмережі (Threads/Twitter/Facebook) НЕ рендерять SVG у прев'ю — потрібен PNG 1200×630.

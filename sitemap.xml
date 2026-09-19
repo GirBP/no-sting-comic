@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Заміни REPLACE-WITH-DOMAIN на реальний домен перед деплоєм (напр. nezhal.pages.dev) -->
 <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://REPLACE-WITH-DOMAIN/</loc>
-    <xhtml:link rel="alternate" hreflang="uk" href="https://REPLACE-WITH-DOMAIN/?lang=uk"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://REPLACE-WITH-DOMAIN/?lang=en"/>
+    <loc>https://girbp.github.io/no-sting-comic/</loc>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://girbp.github.io/no-sting-comic/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://girbp.github.io/no-sting-comic/?lang=en"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
